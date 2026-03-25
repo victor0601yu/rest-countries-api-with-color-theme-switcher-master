@@ -1,0 +1,48 @@
+:root {
+  --color-text: hsl(200, 15%, 8%);
+  --color-input: hsl(0, 0%, 50%);
+  --color-bg: hsl(0, 0%, 99%);
+  --color-surface: hsl(0, 100%, 100%);
+  --color-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+  --header-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --font-family: "Nunito Sans", system-ui, sans-serif;
+  --fs-home: 14px;
+  --fw-normal: 300;
+  --fw-semibold: 600;
+  --fw-extrabold: 800;
+}
+
+html.theme-dark {
+  --color-text: hsl(0, 100%, 100%);
+  --color-input: hsl(0, 100%, 100%);
+  --color-bg: hsl(207, 26%, 17%);
+  --color-surface: hsl(209, 23%, 22%);
+  --color-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  --header-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--fs-home);
+  font-weight: var(--fw-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.4;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
