@@ -87,20 +87,22 @@ onMounted(async () => {
 <template>
   <main class="main">
     <div class="toolbar">
-      <label class="search">
-        <span class="visually-hidden">Search for a country</span>
-        <span class="search__icon" aria-hidden="true">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </span>
-        <input
-          v-model="query"
-          class="search__input"
-          type="search"
-          placeholder="Search for a country..."
-          autocomplete="off"
-        />
-      </label>
-
+      <div class="toolbar__wrapper">
+        <label class="search">
+          <span class="visually-hidden">Search for a country</span>
+          <span class="search__icon" aria-hidden="true">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <input
+            v-model="query"
+            class="search__input"
+            type="search"
+            placeholder="Search for a country..."
+            autocomplete="off"
+          />
+        </label>
+        <TestButton size="medium" />
+      </div>
       <div class="filter" data-filter-root>
         <button
           type="button"
@@ -122,8 +124,6 @@ onMounted(async () => {
           </li>
         </ul>
       </div>
-
-      <TestButton />
     </div>
 
     <p v-if="loading" class="state">Loading…</p>
@@ -180,6 +180,13 @@ onMounted(async () => {
     align-items: center;
     justify-content: space-between;
   }
+}
+
+.toolbar__wrapper{
+  display: flex;
+  gap: 1.5rem;
+  max-width: 640px;
+  width: 100%;
 }
 
 .search {

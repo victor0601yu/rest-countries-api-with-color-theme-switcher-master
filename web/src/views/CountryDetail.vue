@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import TestButton from '../components/TestButton.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -43,10 +44,14 @@ onMounted(() => {
 
 <template>
   <div class="detail">
-    <button class="back-btn" @click="goBack">
-      <i class="fa-solid fa-arrow-left"></i>
-      Back
-    </button>
+    <div class="btn-container">
+      <button class="back-btn" @click="goBack">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back
+      </button>
+
+      <TestButton :country-code="route.params.code" size="small" />
+    </div>
 
     <p v-if="loading" class="state">Loading…</p>
     <p v-else-if="error" class="state state--error">{{ error }}</p>
@@ -121,11 +126,16 @@ onMounted(() => {
   cursor: pointer;
   font-weight: var(--fw-semibold);
   color: var(--color-text);
-  margin-bottom: 3rem;
 }
 
 .back-btn:hover {
   opacity: 0.8;
+}
+
+.btn-container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
 }
 
 .state {
