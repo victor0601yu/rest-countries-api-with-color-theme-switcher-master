@@ -2,6 +2,11 @@
 
 這是一個使用 **Vue 3** + **Vite** 提供支援的單頁應用程式 (SPA)，透過串接 [REST Countries API](https://restcountries.com) 來顯示世界各國的相關資訊。
 
+## 🌐 線上展示 (Live Demo)
+
+您可以透過下方連結查看已部署在 Vercel 上的網站展示：
+👉 [https://rest-countries-api-with-color-theme-rho-five.vercel.app/](https://rest-countries-api-with-color-theme-rho-five.vercel.app/)
+
 ## ✨ 主要功能 (Features)
 
 *   **瀏覽所有國家**：在首頁以卡片網格的列表形式查看全球所有國家。
