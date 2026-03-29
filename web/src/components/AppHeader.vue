@@ -10,13 +10,8 @@ const emit = defineEmits(['toggle-theme'])
   <header class="header">
     <div class="header__inner">
       <h1 class="header__title"><router-link to="/">Where in the world?</router-link></h1>
-      <button
-        type="button"
-        class="header__theme"
-        :aria-pressed="dark"
-        aria-label="Toggle dark mode"
-        @click="emit('toggle-theme')"
-      >
+      <button type="button" class="header__theme" :aria-pressed="dark" aria-label="Toggle dark mode"
+        @click="emit('toggle-theme')">
         <span class="header__theme-icon" aria-hidden="true">
           <i v-if="!dark" class="fa-regular fa-moon"></i>
           <i v-else class="fa-solid fa-sun"></i>
@@ -74,7 +69,8 @@ const emit = defineEmits(['toggle-theme'])
   align-items: center;
   justify-content: center;
   width: 1em;
-  font-size: 1em; /* 跟按鈕文字使用相同字級 */
+  font-size: 1em;
+  /* 跟按鈕文字使用相同字級 */
   line-height: 1;
 }
 

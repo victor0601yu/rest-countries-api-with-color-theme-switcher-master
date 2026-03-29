@@ -93,24 +93,14 @@ onMounted(async () => {
           <span class="search__icon" aria-hidden="true">
             <i class="fa-solid fa-magnifying-glass"></i>
           </span>
-          <input
-            v-model="query"
-            class="search__input"
-            type="search"
-            placeholder="Search for a country..."
-            autocomplete="off"
-          />
+          <input v-model="query" class="search__input" type="search" placeholder="Search for a country..."
+            autocomplete="off" />
         </label>
         <TestButton size="medium" />
       </div>
       <div class="filter" data-filter-root>
-        <button
-          type="button"
-          class="filter__btn"
-          :aria-expanded="filterOpen"
-          aria-haspopup="listbox"
-          @click.stop="filterOpen = !filterOpen"
-        >
+        <button type="button" class="filter__btn" :aria-expanded="filterOpen" aria-haspopup="listbox"
+          @click.stop="filterOpen = !filterOpen">
           {{ regionButtonLabel }}
           <span class="filter__chev" aria-hidden="true">
             <i class="fa-solid fa-chevron-down"></i>
@@ -131,19 +121,10 @@ onMounted(async () => {
     <p v-else-if="!filteredCountries.length" class="state">No countries match your filters.</p>
 
     <div v-else class="grid">
-      <CountryCard
-        v-for="(c, index) in filteredCountries"
-        :key="c.cca2"
-        :name="c.name"
-        :population="c.population"
-        :region="c.region"
-        :capital="c.capital"
-        :flag-url="c.flagUrl"
-        :flag-fallback="c.flagSvg !== c.flagUrl ? c.flagSvg : ''"
-        :flag-alt="c.flagAlt"
-        :eager="index < 8"
-        :cca2="c.cca2"
-      />
+      <CountryCard v-for="(c, index) in filteredCountries" :key="c.cca2" :name="c.name" :population="c.population"
+        :region="c.region" :capital="c.capital" :flag-url="c.flagUrl"
+        :flag-fallback="c.flagSvg !== c.flagUrl ? c.flagSvg : ''" :flag-alt="c.flagAlt" :eager="index < 8"
+        :cca2="c.cca2" />
     </div>
   </main>
 </template>
@@ -182,7 +163,7 @@ onMounted(async () => {
   }
 }
 
-.toolbar__wrapper{
+.toolbar__wrapper {
   display: flex;
   gap: 1.5rem;
   max-width: 640px;

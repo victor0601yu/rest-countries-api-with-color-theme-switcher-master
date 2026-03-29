@@ -5,10 +5,10 @@ const props = defineProps({
 })
 
 async function fetchCountryData() {
-  const url = props.countryCode 
+  const url = props.countryCode
     ? `https://restcountries.com/v3.1/alpha/${props.countryCode}`
     : 'https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca2'
-    
+
   try {
     const res = await fetch(url)
     if (!res.ok) throw new Error('Failed to fetch data')
@@ -21,7 +21,7 @@ async function fetchCountryData() {
 </script>
 
 <template>
-<button :class="['test-btn', `test-btn--${props.size}`]" @click="fetchCountryData">
+  <button :class="['test-btn', `test-btn--${props.size}`]" @click="fetchCountryData">
     {{ countryCode ? 'Fetch Current Country' : 'Fetch All Countries' }}
   </button>
 </template>

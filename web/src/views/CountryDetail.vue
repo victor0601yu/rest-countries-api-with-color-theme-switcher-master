@@ -58,10 +58,7 @@ onMounted(() => {
 
     <div v-else-if="country" class="country">
       <div class="country__flag">
-        <img
-          :src="country.flags?.svg || country.flags?.png"
-          :alt="`${country.name?.common} flag`"
-        />
+        <img :src="country.flags?.svg || country.flags?.png" :alt="`${country.name?.common} flag`" />
       </div>
 
       <div class="country__info">
@@ -69,7 +66,8 @@ onMounted(() => {
 
         <div class="country__details">
           <div class="country__column">
-            <p><strong>Native Name:</strong> {{ country.name?.nativeName?.[Object.keys(country.name?.nativeName || {})[0]]?.common || '—' }}</p>
+            <p><strong>Native Name:</strong> {{ country.name?.nativeName?.[Object.keys(country.name?.nativeName ||
+              {})[0]]?.common || '—' }}</p>
             <p><strong>Population:</strong> {{ formatPopulation(country.population || 0) }}</p>
             <p><strong>Region:</strong> {{ country.region || '—' }}</p>
             <p><strong>Sub Region:</strong> {{ country.subregion || '—' }}</p>
@@ -80,7 +78,7 @@ onMounted(() => {
             <p><strong>Top Level Domain:</strong> {{ country.tld?.[0] || '—' }}</p>
             <p>
               <strong>Currencies:</strong>
-              {{ country.currencies ? Object.values(country.currencies).map(c => c.name).join(', ') : '—' }}
+              {{country.currencies ? Object.values(country.currencies).map(c => c.name).join(', ') : '—'}}
             </p>
             <p>
               <strong>Languages:</strong>
@@ -92,12 +90,7 @@ onMounted(() => {
         <div class="country__borders" v-if="country.borders?.length">
           <strong>Border Countries:</strong>
           <div class="border-list">
-            <router-link
-              v-for="border in country.borders"
-              :key="border"
-              :to="`/country/${border}`"
-              class="border-tag"
-            >
+            <router-link v-for="border in country.borders" :key="border" :to="`/country/${border}`" class="border-tag">
               {{ border }}
             </router-link>
           </div>
@@ -132,7 +125,7 @@ onMounted(() => {
   opacity: 0.8;
 }
 
-.btn-container{
+.btn-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 3rem;

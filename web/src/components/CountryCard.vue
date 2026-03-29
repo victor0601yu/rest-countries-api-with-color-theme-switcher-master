@@ -34,17 +34,8 @@ const formatPop = (n) => new Intl.NumberFormat('en-US').format(n)
 <template>
   <router-link :to="`/country/${cca2}`" class="card">
     <div class="card__flag-wrap">
-      <img
-        class="card__flag"
-        :src="imgSrc"
-        :alt="flagAlt || name"
-        width="320"
-        height="192"
-        :loading="eager ? 'eager' : 'lazy'"
-        referrerpolicy="no-referrer"
-        decoding="async"
-        @error="onFlagError"
-      />
+      <img class="card__flag" :src="imgSrc" :alt="flagAlt || name" width="320" height="192"
+        :loading="eager ? 'eager' : 'lazy'" referrerpolicy="no-referrer" decoding="async" @error="onFlagError" />
     </div>
     <div class="card__body">
       <h2 class="card__name">{{ name }}</h2>
