@@ -13,11 +13,13 @@ async function fetchCountry() {
   loading.value = true
   error.value = null
   try {
-    const code = route.params.code
-    const res = await fetch(`https://restcountries.com/v3.1/alpha/${code}`)
-    if (!res.ok) throw new Error('Country not found')
-    const data = await res.json()
-    country.value = data[0]
+    const code = route.params.code.toUpperCase()
+    const res = await fetch('/data.json')
+    if (!res.ok) throw new Error('Failed to load countries database')
+    const countries = await res.json()
+    const match = countries.find(c => c.cca2?.toUpperCase() === code || c.cca3?.toUpperCase() === code)
+    if (!match) throw new Error('Country not found')
+    country.value = match
   } catch (e) {
     error.value = e instanceof Error ? e.message : 'Something went wrong'
   } finally {

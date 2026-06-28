@@ -3,7 +3,7 @@ import { computed, onMounted, ref, watch } from 'vue'
 import CountryCard from '../components/CountryCard.vue'
 import TestButton from '../components/TestButton.vue'
 
-const API = 'https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca2'
+const API = '/data.json'
 
 const REGIONS = [
   { label: 'Africa', value: 'Africa' },

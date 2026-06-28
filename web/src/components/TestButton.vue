@@ -5,15 +5,17 @@ const props = defineProps({
 })
 
 async function fetchCountryData() {
-  const url = props.countryCode
-    ? `https://restcountries.com/v3.1/alpha/${props.countryCode}`
-    : 'https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,cca2'
-
   try {
-    const res = await fetch(url)
+    const res = await fetch('/data.json')
     if (!res.ok) throw new Error('Failed to fetch data')
     const data = await res.json()
-    console.log(props.countryCode ? `Data for ${props.countryCode}:` : 'All Countries Data:', data)
+    if (props.countryCode) {
+      const code = props.countryCode.toUpperCase()
+      const country = data.find(c => c.cca2?.toUpperCase() === code || c.cca3?.toUpperCase() === code)
+      console.log(`Data for ${props.countryCode}:`, country)
+    } else {
+      console.log('All Countries Data:', data)
+    }
   } catch (e) {
     console.error('Error fetching data:', e)
   }
